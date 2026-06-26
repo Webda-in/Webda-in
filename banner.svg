@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&amp;display=swap');
+    
+    .bg {
+      fill: #050508;
+    }
+    
+    .title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 200;
+      fill: #ffffff;
+      font-size: 42px;
+      letter-spacing: 0.3em;
+      opacity: 0;
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+    
+    .subtitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      fill: #a1a1aa;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      opacity: 0;
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+
+    .grid-line {
+      stroke: rgba(255, 255, 255, 0.03);
+      stroke-width: 1;
+    }
+    
+    .glowing-blob-1 {
+      fill: #0ea5e9;
+      opacity: 0.12;
+      filter: blur(60px);
+      animation: drift 16s infinite alternate ease-in-out;
+    }
+    
+    .glowing-blob-2 {
+      fill: #6366f1;
+      opacity: 0.1;
+      filter: blur(70px);
+      animation: drift-reverse 20s infinite alternate ease-in-out;
+    }
+    
+    .logo-container {
+      opacity: 0;
+      animation: scaleIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .logo-frame {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.15);
+      stroke-width: 1.5;
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: drawLine 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .logo-frame-inner {
+      fill: none;
+      stroke: #38bdf8;
+      stroke-width: 1;
+      opacity: 0.6;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: drawLineInner 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes drawLineInner {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    @keyframes drift {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(60px, -20px) scale(1.1);
+      }
+      100% {
+        transform: translate(-30px, 40px) scale(0.9);
+      }
+    }
+    
+    @keyframes drift-reverse {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(-40px, 30px) scale(0.95);
+      }
+      100% {
+        transform: translate(50px, -30px) scale(1.15);
+      }
+    }
+  </style>
+  
+  <rect class="bg" width="800" height="300" rx="12" />
+  
+  <!-- Blueprint Grid lines -->
+  <g>
+    <!-- Vertical lines -->
+    <line class="grid-line" x1="100" y1="0" x2="100" y2="300" />
+    <line class="grid-line" x1="200" y1="0" x2="200" y2="300" />
+    <line class="grid-line" x1="300" y1="0" x2="300" y2="300" />
+    <line class="grid-line" x1="400" y1="0" x2="400" y2="300" />
+    <line class="grid-line" x1="500" y1="0" x2="500" y2="300" />
+    <line class="grid-line" x1="600" y1="0" x2="600" y2="300" />
+    <line class="grid-line" x1="700" y1="0" x2="700" y2="300" />
+    
+    <!-- Horizontal lines -->
+    <line class="grid-line" x1="0" y1="60" x2="800" y2="60" />
+    <line class="grid-line" x1="0" y1="120" x2="800" y2="120" />
+    <line class="grid-line" x1="0" y1="180" x2="800" y2="180" />
+    <line class="grid-line" x1="0" y1="240" x2="800" y2="240" />
+  </g>
+  
+  <!-- Drifting Glows -->
+  <circle class="glowing-blob-1" cx="200" cy="120" r="140" />
+  <circle class="glowing-blob-2" cx="600" cy="180" r="160" />
+  
+  <!-- Centered Logo + Text container -->
+  <g transform="translate(400, 150)">
+    <!-- Animated Logo Mark -->
+    <g class="logo-container" transform="translate(0, -65)">
+      <!-- Styled geometric diamond shape -->
+      <polygon class="logo-frame" points="0,-24 24,0 0,24 -24,0" />
+      <polygon class="logo-frame-inner" points="0,-14 14,0 0,14 -14,0" />
+      <!-- Glowing dot -->
+      <circle cx="0" cy="0" r="3" fill="#ffffff" />
+    </g>
+    
+    <!-- Typographic Header -->
+    <text class="title" x="0" y="25" text-anchor="middle">WEBDA</text>
+    <text class="subtitle" x="0" y="55" text-anchor="middle">HIGH-END WEB ENGINEERING &amp; DESIGN</text>
+  </g>
+</svg>
